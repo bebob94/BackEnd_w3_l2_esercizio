@@ -40,14 +40,6 @@ public class DbConnection {
 			this.st.executeUpdate(sql);
 		}
 		
-		// <<<<<<<<<<<<<<<<<<<<<<<<<< MODIFICA STUDENTE >>>>>>>>>>>>>>>>>>>>>>>>>>
-		public void updateStudent(studenti s) throws SQLException {
-	        String sql = "UPDATE Users " + "SET name='" + s.getName() + "', lastname='" + s.getLastname() + "', gender='"
-	                + s.getGender() + "' " + "WHERE id_user = " + s.getId();
-	        this.st.executeUpdate(sql);
-	        System.out.println("Utente aggiornato!!");
-	    }
-		
 		// <<<<<<<<<<<<<<<<<<<<<<<<<< LETTURA STUDENTE >>>>>>>>>>>>>>>>>>>>>>>>>>
 		public studenti trovaStudente(Integer id) throws SQLException {
 			studenti utente = null;
@@ -67,6 +59,14 @@ public class DbConnection {
 			System.out.println("utente letto correttamente");
 			return utente;
 		}
+		
+		// <<<<<<<<<<<<<<<<<<<<<<<<<< MODIFICA STUDENTE >>>>>>>>>>>>>>>>>>>>>>>>>>
+		public void updateStudent(studenti s) throws SQLException {
+	        String sql = "UPDATE Users " + "SET name='" + s.getName() + "', lastname='" + s.getLastname() + "', gender='"
+	                + s.getGender() + "' " + "WHERE id_user = " + s.getId();
+	        this.st.executeUpdate(sql);
+	        System.out.println("Utente aggiornato!!");
+	    }
 		
 		//<<<<<<<<<<<<<<<<<<<<<<<<<< ELIMINAZIONE STUDENTE >>>>>>>>>>>>>>>>>>>>>>>>>>
 		public void eliminaUtente(studenti s) throws SQLException {
